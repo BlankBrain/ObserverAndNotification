@@ -13,7 +13,7 @@ class ObserverViewController: UIViewController {
     
     
     @IBOutlet weak var textField: UITextField!
-    
+    var message: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,11 @@ class ObserverViewController: UIViewController {
     
 
     @IBAction func buttonclicked(_ sender: Any) {
+        //notification
+        message = textField.text!
+        let name = Notification.Name(rawValue: ObserverViewControllerNotificationKey)
+       // NotificationCenter.default.post(name: name, object: nil)
+        NotificationCenter.default.post(name: name, object: self, userInfo: [name: self.message])
         dismiss(animated: true, completion: nil)
     }
     
