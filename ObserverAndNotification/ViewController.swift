@@ -10,11 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var messageLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func buttonClicked(_ sender: Any) {
+        let ObserverViewController = storyboard?.instantiateViewController(withIdentifier: "ObserverViewController") as! ObserverViewController
+            present(ObserverViewController, animated: true, completion: nil)
+        
+    }
+    
 }
 
